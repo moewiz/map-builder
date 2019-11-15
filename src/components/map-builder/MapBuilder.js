@@ -20,6 +20,12 @@ const MapBuilder = () => {
   const [placedTiles, setPlacedTiles] = useState([]);
   const placeTile = (tile, x, y) => {
     console.log({ tile, x, y });
+    const snappedX = Math.ceil(x / 32) * 32 - 32;
+    const snappedY = Math.ceil(y / 32) * 32 - 32;
+    setPlacedTiles(prevState => [
+      ...prevState.filter(prev => !(prev.x === snappedX && prev.y === snappedY)),
+      { tile, x: snappedX, y: snappedY }
+    ]);
   };
   const handleDrag = e => {
     e.dataTransfer.setData("text", e.target.id);
@@ -39,8 +45,9 @@ const MapBuilder = () => {
         onDrop={handleDrop}
         style={{ width: SIZE * ROWS + 1, height: SIZE * COLUMNS + 1 }}
       >
-        {placedTiles.map(placed => (
+        {placedTiles.map((placed, i) => (
           <div
+            key={i}
             className={`placed tile ${placed.tile}`}
             style={{ left: placed.x, top: placed.y }}
           ></div>
@@ -51,7 +58,7 @@ const MapBuilder = () => {
           <div
             className={`tile ${tile}`}
             draggable={true}
-            handleDrag={handleDrag}
+            onDragStart={handleDrag}
             id={`${tile}_${i}`}
             key={`${tile}_${i}`}
           />
