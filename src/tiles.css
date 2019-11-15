@@ -1,0 +1,40 @@
+.tile {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.placed.tile {
+  position: absolute;
+}
+
+.grass {
+  background: url(/tiles.png) -0px -0px;
+}
+.plant-2 {
+  background: url(/tiles.png) -32px -0px;
+}
+.plant-1 {
+  background: url(/tiles.png) -64px -0px;
+}
+.flowers-2 {
+  background: url(/tiles.png) -64px -64px;
+}
+.flowers-4 {
+  background: url(/tiles.png) -160px -0px;
+}
+.log-1 {
+  background: url(/tiles.png) -128px -0px;
+}
+.log-2 {
+  background: url(/tiles.png) -128px -32px;
+}
+.rock-1 {
+  background: url(/tiles.png) -0px -96px;
+}
+.rock-2 {
+  background: url(/tiles.png) -32px -96px;
+}

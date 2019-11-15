@@ -1,0 +1,15 @@
+.map-builder {
+  display: flex;
+}
+
+.map {
+  background-image: url(/grid.png);
+  background-repeat: repeat;
+}
+
+.tiles {
+  flex: 1;
+  background: #acd372;
+  border: 1px solid #acd372;
+  border-left: none;
+}
